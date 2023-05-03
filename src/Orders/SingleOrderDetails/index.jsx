@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { writeData } from 'localFile'
 
 import { originOrderContext } from 'context/OrderContext'
 import { originCustomerContext } from 'context/CustomerContext'
@@ -43,7 +42,7 @@ const SingleOrderDetails = () => {
   useEffect(() => {
     fetchOrder()
     fetchOrderItemList(orderID)
-    writeData('route.txt', location.pathname)
+    localStorage.setItem('route', location.pathname)
   }, [editionMode])
 
   const handleDeletion = async () => {

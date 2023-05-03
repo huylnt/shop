@@ -1,4 +1,3 @@
-import { writeData } from 'localFile'
 import { originUserContext } from 'context/UserAuthenticationContext'
 import { useContext } from 'react'
 import { useNavigate } from 'react-router'
@@ -25,12 +24,12 @@ const SidePanel = () => {
     
     setUserID('')
     setJustLogInInASecond(false)
-    writeData('account.txt', '')
+    localStorage.setItem('account', '')
     navigateTo('/login')
   }
 
   const handleRouteChanged = async (path) => {
-    writeData('route.txt', path)
+    localStorage.setItem('route', path)
   }
 
   return (

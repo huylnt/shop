@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { writeData } from 'localFile'
 
 import { Image, Flex, Text, Center, Box, Input, Button, IconButton, useToast, Editable, EditablePreview, EditableInput } from '@chakra-ui/react'
 import { IoCreateOutline } from 'react-icons/io5'
@@ -58,7 +57,7 @@ const CustomerCreator = () => {
      }
 
      useEffect(() => {
-          writeData('route.txt', location.pathname)
+          localStorage.setItem('route', location.pathname)
      }, [])
 
      return (

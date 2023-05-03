@@ -2,7 +2,6 @@ import React, { useEffect, useState, useContext } from 'react'
 import { useNavigate } from 'react-router'
 import { originUserContext } from 'context/UserAuthenticationContext'
 
-import { readFile } from 'localFile'
 import { Center, Spinner, useToast } from '@chakra-ui/react'
 
 const Redirect = ({ children }) => {
@@ -38,14 +37,14 @@ const Redirect = ({ children }) => {
                setAvatarPath(content.avatarPath)
                setVerifyingUserState(false)
                setJustLogInInASecond(true)
-               const recentRoute = await readFile('route.txt')
+               const recentRoute = localStorage.getItem('route')
                if (recentRoute.length < 1) navigateTo('/dashboard')
                navigateTo(recentRoute)
           }
      }
 
      const retriveUserIDFromLocalFile = async () => {
-          const retrievedUserID = await readFile('account.txt')
+          const retrievedUserID = localStorage.getItem('account')
           verifyUserSession(retrievedUserID)
      }
 

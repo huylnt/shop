@@ -1,6 +1,5 @@
 import { useState, useEffect, useContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { writeData } from 'localFile'
 
 import { originUserContext } from 'context/UserAuthenticationContext'
 import { originProductContext } from 'context/ProductContext'
@@ -258,7 +257,7 @@ const OrderCreator = () => {
      useEffect(() => {
           fetchListOfCustomerName()
           fetchListOfProductName()
-          writeData('route.txt', location.pathname)
+          localStorage.setItem('route', location.pathname)
      }, [])
 
      return (

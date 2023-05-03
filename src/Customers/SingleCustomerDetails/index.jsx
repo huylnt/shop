@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { writeData } from 'localFile'
 
 import { originCustomerContext } from 'context/CustomerContext'
 import { convertToCurrency } from 'valueConverter'
@@ -38,7 +37,7 @@ const SingleCustomerDetails = () => {
 
   useEffect(() => {
     fetchCustomer()
-    writeData('route.txt', location.pathname)
+    localStorage.setItem('route', location.pathname)
   }, [])
 
   const handleDeletion = async () => {

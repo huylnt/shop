@@ -1,6 +1,5 @@
 import { useContext, useState, useEffect } from 'react'
 import { useParams, useNavigate, useLocation } from 'react-router-dom'
-import { writeData } from 'localFile'
 
 import { originProductContext } from 'context/ProductContext'
 import { convertToCurrency } from 'valueConverter'
@@ -37,7 +36,7 @@ const SingleProductDetails = () => {
 
   useEffect(() => {
     fetchProduct()
-    writeData('route.txt', location.pathname)
+    localStorage.setItem('route', location.pathname)
   }, [])
 
   const handleDeletion = async () => {

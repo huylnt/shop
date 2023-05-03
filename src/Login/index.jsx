@@ -16,16 +16,14 @@ import {
 
 import { useToast } from "@chakra-ui/react"
 
-import { readFile } from "localFile"
-
 export default function Login() {
      const userAuthenticationContext = useContext(originUserContext)
      const { handleUserLogin, justLogInInASecond } = userAuthenticationContext
 
      const navigateTo = useNavigate()
 
-     const [username, setUsername] = useState('')
-     const [password, setPassword] = useState('')
+     const [username, setUsername] = useState('lnthuy')
+     const [password, setPassword] = useState('29012002')
      const [isProcessing, setIsProcessing] = useState(false)
      const toast = useToast()
 
@@ -41,15 +39,15 @@ export default function Login() {
                     position: 'bottom-right',
                     colorScheme: 'red',
                     duration: 3000,
-                    isClosable: true,
                })
           }
           else navigateTo('/dashboard')
+          
           setIsProcessing(false)
      }
 
      const navigateToRecentRoute = async () => {
-          const recentRoute = await readFile('route.txt')
+          const recentRoute = localStorage.getItem('route')
           if (recentRoute.length < 1) navigateTo('/dashboard')
           navigateTo(recentRoute)
      }
@@ -69,7 +67,7 @@ export default function Login() {
                          <FormLabel>Username</FormLabel>
                          <Input
                               type="username"
-                              placeholder="test@test.com"
+                              defaultValue="lnthuy"
                               size="lg"
                               onChange={event => setUsername(event.currentTarget.value)}
                               focusBorderColor='secondary'
@@ -80,7 +78,7 @@ export default function Login() {
                          <FormLabel>Password</FormLabel>
                          <Input
                               type="password"
-                              placeholder="*******"
+                              defaultValue="29012002"
                               size="lg"
                               onChange={event => setPassword(event.currentTarget.value)}
                               focusBorderColor='secondary'

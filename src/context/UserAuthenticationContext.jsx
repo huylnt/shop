@@ -1,6 +1,5 @@
 import React, { useState, createContext } from 'react'
 import MD5 from "crypto-js/md5"
-import { writeData } from 'localFile'
 
 const originUserContext = createContext()
 
@@ -32,7 +31,7 @@ const UserAuthenticationContext = ({ children }) => {
 
           const content = await response.json()
           
-          writeData('account.txt', content._id)
+          localStorage.setItem('account', content._id)
           setUserID(content._id)
           setUserFullName(content.fullName)
           setAvatarPath(content.avatarPath)

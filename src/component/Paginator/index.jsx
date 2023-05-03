@@ -409,7 +409,7 @@ const Paginator = ({ context }) => {
   }, [productCurrentPage, productTotalPage, categoryTotalPage, categoryCurrentPage, customerCurrentPage, customerTotalPage, orderCurrentPage, orderTotalPage])
 
   return (
-    <Center>
+    <Center marginTop='110px'>
       <Flex alignItems='center' marginTop='25px' gap='30px'>
         <IconButton aria-label='Go to first page' icon={<BsSkipBackward />} opacity={(currentPage === 1) ? '10%' : '100%'} rounded='50%' size='lg' onClick={goToFirstPage} />
         <IconButton aria-label='Go to previous page' icon={<IoIosArrowBack />} opacity={(currentPage === 1) ? '10%' : '100%'} rounded='50%' size='lg' onClick={goToPreviousPage} />

@@ -1,6 +1,5 @@
 import { useState, useEffect, memo, useContext } from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
-import { writeData } from 'localFile'
 import axios from 'axios'
 import { originProductContext } from 'context/ProductContext'
 
@@ -174,7 +173,7 @@ const ProductCreator = () => {
 
      useEffect(() => {
           fetchCategoryList()
-          writeData('route.txt', location.pathname)
+          localStorage.setItem('route', location.pathname)
      }, [categoryCreatorOpened])
 
      return (
